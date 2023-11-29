@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruchira - Food Ordering Website</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="static/css/stylecss.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> Tracy Atieno  </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#features">features</a>
+        <a href="#products">products</a>
+        <a href="#categories">categories</a>
+        <a href="#review">review</a>
+        <a href="#blogs">blogs</a>
+    </nav>
+
+    <div class="icons">
+       <div class="fas-fa-bars" id="menu-btn"></div>
+      <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <a href="logout"> <div class="fas fa-user" id="login-btn"></div></a>
+        <input type="text" id="lname" value={{ab}} name="lname" disabled><br><br>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart">
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="static/img/Matar-Paneer-1.jpg" alt="">
+            <div class="content">
+                <h3>Matar paneer</h3>
+                <span class="price"> &#8377 60/-</span>
+                <span class="quantity">qty : 1kg</span>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="static/img/ladyfinger.webp" alt="">
+            <div class="content">
+                <h3> Fried - Bhindi</h3>
+                <span class="price"> &#8377 40 /-</span>
+                <span class="quantity">qty : 1kg</span>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-trash"></i>
+            <img src="static/img/pneer.jpg" alt="">
+            <div class="content">
+                <h3>paneer</h3>
+                <span class="price"> &#8377 150/-</span>
+                <span class="quantity">qty : 1kg</span>
+            </div>
+        </div>
+        <div class="total"> total :  &#8377 250/- </div>
+        <a href="#" class="btn">checkout</a>
+    </div>
+
+    <form action="" class="login-form">
+        <h3>login now</h3>
+        <input type="email" placeholder="your email" class="box">
+        <input type="password" placeholder="your password" class="box">
+        <p>forget your password <a href="#">click here</a></p>
+        <p>don't have an account <a href="#">create now</a></p>
+        <input type="submit" value="login now" class="btn">
+    </form>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3><span>{{ds.title}}</span></h3>
+        <p>{{ds.description}}.</p>
+        <a href="#" class="btn">shop now</a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> our <span>features</span> </h1>
+
+    
+
+    <div class="box-container">
+
+        {% for n in fr %}
+
+        
+
+        <div class="box">
+            <img src='media/{{n.fea_img}}' alt="">
+            <h3>{{n.title}}</h3>
+            <p>{{n.desc}}</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        {% endfor %}
+
+       
+    </div>
+
+</section>
+
+<!-- features section ends -->
+
+<!-- products section starts  -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> our <span>products</span> </h1>
+
+   
+
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+
+            {% for n in pr %}
+
+            <div class="swiper-slide box">
+                <img src="media/{{n.p_image}}" alt="">
+                <h3>{{n.ptitle}}</h3>
+                <div class="price"> &#8377 {{n.pprice}} </div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            
+         
+
+  
+
+    {% endfor %}
+
+
+</section>
+
+<!-- products section ends -->
+
+<!-- categories section starts  -->
+
+<section class="categories" id="categories">
+
+    <h1 class="heading"> product <span>categories</span> </h1>
+
+    <div class="box-container">
+
+        {% for n in cr  %}
+
+        <div class="box">
+            <img src="media/{{n.img}}" alt="">
+            <h3>{{n.title}}</h3>
+            <p>upto {{n.discount}} % off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+        {% endfor %}
+
+       
+    </div>
+
+</section>
+
+<!-- categories section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> customer's <span>review</span> </h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="static/image/pic-1.png" alt="">
+                <p>Effortless shopping at my fingertips! This grocery website delivers fresh produce and pantry staples promptly, making meal planning a breeze</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="static/image/pic-2.png" alt="">
+                <p>Variety is impressive, prices are competitive—highly recommend..</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="static/image/pic-3.png" alt="">
+                <p>Quick and reliable service, my go-to for groceries!.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="static/image/pic-4.png" alt="">
+                <p>Convenient online shopping, but occasional delivery delays.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+
+<!-- blogs section starts  -->
+
+
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> our <span>blogs</span> </h1>
+
+   
+
+    <div class="box-container">
+
+        {% for n in bl  %}
+   
+
+        <div class="box">
+            <img src="media/{{n.image}}" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-user"></i> by user </a>
+                    <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2022 </a>
+                </div>
+                <h3>{{n.title}}</h3>
+                <p>{{n.desc}}.</p>
+                <a href="{{n.url}}" class="btn">read more</a>
+            </div>
+        </div>
+            {% endfor %}
+      
+
+          
+
+
+        
+
+       
+    
+
+</section>
+
+
+
+
+<!-- blogs section ends -->
+
+<!-- footer section starts  -->
+
+
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3> groco <i class="fas fa-shopping-basket"></i> </h3>
+            <p>Contact For support and changes.</p>
+            <div class="share">
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100049110362820" class="fab fa-facebook-f"> </a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="https://www.instagram.com/abhishek9z/" class="fab fa-instagram"></a>
+                <a href="https://www.linkedin.com/in/abhishek-gautam-8aab6b1b2/" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="tel:+919260954583" class="links"> <i class="fas fa-phone"></i> +919260954583 </a>
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWsTJvBkgjChBXTxPcfsfvzdmBmdLPxrnSmmgNQMrdVJbTjwkfbdGMzQgKXmSbpvPcVcLbSsV" class="links"> <i class="fas fa-envelope"></i> riteshgautam8808@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Kanpur,India </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> features </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> products </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> categories </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> review </a>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> blogs </a>
+        </div>
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <input type="email" placeholder="your email" class="email">
+            <input type="submit" value="subscribe" class="btn">
+            <img src="static/image/payment.png" class="payment-img" alt="">
+        </div>
+
+    </div>
+
+    <div class="credit">  <span> all rights reserved by</span> |Tracy Atieno  </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="static/js/script.js"></script>
+
+
+
+
+
+
+</body>
+</html>
